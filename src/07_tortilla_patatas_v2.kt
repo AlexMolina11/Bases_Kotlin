@@ -1,23 +1,24 @@
 fun main() {
     // Creamos array con los productos basicos para hacer una tortilla de patatas
     val ingredientes = arrayOf("patatas","huevos","aceite","sal")
-    //Creamos un array vacio con el mismo tamanio que el array de ingredientes
-    // de cantidades de cada ingrediente que debemos comprar
-    val cantidades = Array<String>(ingredientes.size) {""}
 
-    //Recorremos el array con un forEach
+    //Array del mismo numero de elementos que el de ingredientes
+    //Para las cantidades
+    val cantidades = Array<Int>(ingredientes.size) {0}
+
+    //Recorrer un array
     ingredientes.forEach {
         //Preguntamos al usuario si tiene el ingrediente
         println("¿Tienes ${it}? (s/n)")
-        val respuesta = readLine()
+        val respuesta = readln()
         if(respuesta.equals("s", ignoreCase = true)) {
             println("¿Cuántas unidades/cantidades tienes de ${it}?")
-            val cantidad = readLine()
-            cantidad?.let { it1 -> cantidades[ingredientes.indexOf(it)] = it1 }
+            val cantidad = readln()
+            cantidades[ingredientes.indexOf(it)] = cantidad.toInt()
         } else {
-            println("¿Cuantas unidades necesitas de ${it}?")
-            val cantidad = readLine()
-            cantidad?.let { it1 -> cantidades[ingredientes.indexOf(it)] = it1 }
+            println("¿Cuantas unidades/cantidades necesitas de ${it}?")
+            val cantidad = readln()
+            cantidades[ingredientes.indexOf(it)] = -1*cantidad.toInt()
         }
     }
 

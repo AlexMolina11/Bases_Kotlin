@@ -8,6 +8,7 @@ fun menu_principal():Int {
 
 fun main(){
     //Nuevo diccionario que represente a un equipo de baloncesto
+    //Como [nombre_jugador] = anotacion
     val equipo_baloncesto = mutableMapOf<String, Int>()
 
     //Bucle infinito
